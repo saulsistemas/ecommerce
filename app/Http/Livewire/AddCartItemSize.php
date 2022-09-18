@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 use App\Models\Size;
 use Livewire\Component;
 use Illuminate\Support\Facades\Storage;
+use Gloudemans\Shoppingcart\Facades\Cart;
 class AddCartItemSize extends Component
 {
     public $product, $sizes;
@@ -53,20 +54,20 @@ class AddCartItemSize extends Component
 
     public function addItem()
     {
-        //Cart::add([
-        //    'id' => $this->product->id,
-        //    'name' => $this->product->name,
-        //    'qty' => $this->qty,
-        //    'price' => $this->product->price,
-        //    'weight' => 550,
-        //    'options' => $this->options
-        //]);
+        Cart::add([
+            'id' => $this->product->id,
+            'name' => $this->product->name,
+            'qty' => $this->qty,
+            'price' => $this->product->price,
+            'weight' => 550,
+            'options' => $this->options
+        ]);
 
         //$this->quantity = qty_available($this->product->id, $this->color_id, $this->size_id);
 
         //$this->reset('qty');
 
-        //$this->emitTo('dropdown-cart', 'render');
+        $this->emitTo('dropdown-cart', 'render');
     }
 
     public function render()

@@ -35,3 +35,7 @@ Route::middleware(['auth'])->group(function(){
    // Route::post('webhooks', WebhooksController::class);
 
 });
+
+Route::get('prueba',function(){
+   \Cart::destroy();
+});

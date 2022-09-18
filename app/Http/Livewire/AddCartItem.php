@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire;
 
-use Gloudemans\Shoppingcart\Facades\Cart;
-use Gloudemans\Shoppingcart\Contracts\Buyable;
+
 use Livewire\Component;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Storage;
 class AddCartItem extends Component
 {
@@ -39,10 +39,8 @@ class AddCartItem extends Component
                     'options' => $this->options
                 ]);
 
-        $this->quantity = qty_available($this->product->id);
-
-        $this->reset('qty');
-
+        //$this->quantity = qty_available($this->product->id);
+        //$this->reset('qty');
         $this->emitTo('dropdown-cart', 'render');
     }
 
