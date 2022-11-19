@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Http;
 class OrderController extends Controller
 {
     public function payment(Order $order){
-        return view('orders.payment',compact('order'));
+        $items = json_decode($order->content);
+        $envio = json_decode($order->envio);
+        return view('orders.payment',compact('order','items','envio'));
     }
     public function index(){
 
