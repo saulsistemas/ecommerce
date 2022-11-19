@@ -6,7 +6,7 @@
 
         @if (Cart::count())
         
-            <table class="min-w-full divide-y divide-gray-200">
+            <table class="table-auto w-full divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
                         <th scope="col"

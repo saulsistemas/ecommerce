@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 class OrderController extends Controller
 {
+    public function payment(Order $order){
+        return view('orders.payment',compact('order'));
+    }
     public function index(){
 
         $orders = Order::query()->where('user_id', auth()->user()->id);
