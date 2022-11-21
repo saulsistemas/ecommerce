@@ -28,11 +28,9 @@ class CreateProduct extends Component
 
     public function updatedCategoryId($value){
         $this->subcategories = Subcategory::where('category_id', $value)->get();
-
         $this->brands = Brand::whereHas('categories', function(Builder $query) use ($value){
             $query->where('category_id', $value);
         })->get();
-
         $this->reset(['subcategory_id', 'brand_id']);
     }
 
@@ -54,17 +52,13 @@ class CreateProduct extends Component
     public function save(){
 
         $rules = $this->rules;
-
         if ($this->subcategory_id) {
             if (!$this->subcategory->color && !$this->subcategory->size) {
                 $rules['quantity'] = 'required';
             }
         }
-
         $this->validate($rules);
-
         $product = new Product();
-
         $product->name = $this->name;
         $product->slug = $this->slug;
         $product->description = $this->description;
