@@ -47,7 +47,7 @@
                         </x-jet-dropdown-link>
 
                         @role('admin')
-                            <x-jet-dropdown-link href="">
+                            <x-jet-dropdown-link href="{{ route('admin.index') }}">
                                 Administrador
                             </x-jet-dropdown-link>
                         @endrole
